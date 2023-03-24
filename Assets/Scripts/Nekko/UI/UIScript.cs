@@ -39,6 +39,6 @@ namespace Nekko.UI
             public const string NumberOnly = "FONTCOLOR"; // - RRRGGGBBB: Color Pattern
         }
         
-        public List<UIGroupElement> Groups { get; set; } = new();
+        public List<UIGroupElement> Groups = new();
     }
 }

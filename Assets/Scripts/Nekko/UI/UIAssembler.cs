@@ -12,12 +12,12 @@ namespace Nekko.UI
         
         public void ReadFile(string path)
         {
-            var txt = (TextAsset)Resources.Load(path, typeof(TextAsset));
-            var lines = txt.text
-                .Split("\n")
-                .Select(line => line.Trim())
-                .Where(line => !string.IsNullOrEmpty(line))
-                .ToArray();
+             var txt = (TextAsset)Resources.Load(path, typeof(TextAsset));
+             var lines = txt.text
+                 .Split("\n")
+                 .Select(line => line.Trim())
+                 .Where(line => !string.IsNullOrEmpty(line))
+                 .ToArray();
 
             CurrentUIScript = new UIScript();
             
@@ -43,7 +43,7 @@ namespace Nekko.UI
                 {
                     if (currentGroup == null) return;
                     var data = line.Split(' ');
-                    if (data.Length >= 2) continue;
+                    if (data.Length != 2) continue;
                     Debug.Log(line);
                     var itemKey = data[0];
                     var itemValue = data[1];
@@ -73,6 +73,7 @@ namespace Nekko.UI
                     {
                         var key = nextLine.Split(' ')[0];
                         var value = nextLine.Split(' ')[1];
+                        key = key.Replace("-", "");
                         item.SetAttribute(key, value);
                     });
                     currentGroup.Elements.Add(item);

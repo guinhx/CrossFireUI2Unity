@@ -11,6 +11,7 @@ namespace Nekko.UI.Element
     [Serializable]
     public class UIImageElement : UIElement
     {
+        
         public string TexPath { get; set; }
         public bool UseAlpha { get; set; }
         public int Transparency { get; set; }
@@ -71,6 +72,9 @@ namespace Nekko.UI.Element
 
         public Texture2D GetTexture()
         {
+            if (string.IsNullOrEmpty(TexPath))
+                return new Texture2D((int)Width, (int)Height);
+            
             return (Texture2D)Resources.Load(TexPath.Replace("\\\\", "\\").WithoutFileExtension(), typeof(Texture2D));
         }
     }

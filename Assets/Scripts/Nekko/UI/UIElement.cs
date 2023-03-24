@@ -7,15 +7,15 @@ using static Nekko.UI.UIScript;
 namespace Nekko.UI
 {
     [Serializable]
-    public abstract class UIElement
+    public class UIElement
     {
-        public UIElementType Type { get; set; } = UIElementType.Undefined;
-        public string Id { get; set; }
-        public float PositionX { get; set; }
-        public float PositionY { get; set; }
-        public float Width { get; set; }
-        public float Height { get; set; }
-        public int ChangeResolution { get; set; }
+        public UIElementType Type  = UIElementType.Undefined;
+        public string Id;
+        public float PositionX;
+        public float PositionY;
+        public float Width;
+        public float Height;
+        public int ChangeResolution;
 
         public virtual void Create(Transform parent) {}
 
